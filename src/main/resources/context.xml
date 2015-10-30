@@ -43,13 +43,13 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
-	<bean id="newsEntryDao" class="net.dontdrinkandroot.example.angularrestspringsecurity.dao.newsentry.JpaNewsEntryDao">
+	<bean id="newsEntryDao" class="com.telco.sampleApp.dao.newsentry.JpaNewsEntryDao">
 	</bean>
 	
-	<bean id="userDao" class="net.dontdrinkandroot.example.angularrestspringsecurity.dao.user.JpaUserDao">
+	<bean id="userDao" class="com.telco.sampleApp.dao.user.JpaUserDao">
 	</bean>
 	
-	<bean id="dataBaseInitializer" class="net.dontdrinkandroot.example.angularrestspringsecurity.dao.DataBaseInitializer" init-method="initDataBase">
+	<bean id="dataBaseInitializer" class="com.telco.sampleApp.dao.DataBaseInitializer" init-method="initDataBase">
 		<constructor-arg ref="userDao" />
 		<constructor-arg ref="newsEntryDao" />
 		<constructor-arg ref="passwordEncoder" />
@@ -94,9 +94,9 @@
 		<security:intercept-url method="DELETE" pattern="/rest/news/**" access="hasRole('admin')" />
 	</security:http>
 
-	<bean id="unauthorizedEntryPoint" class="net.dontdrinkandroot.example.angularrestspringsecurity.rest.UnauthorizedEntryPoint" />
+	<bean id="unauthorizedEntryPoint" class="com.telco.sampleApp.rest.UnauthorizedEntryPoint" />
 
-	<bean class="net.dontdrinkandroot.example.angularrestspringsecurity.rest.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
+	<bean class="com.telco.sampleApp.rest.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
 		<constructor-arg ref="userDao" />
 	</bean>
 
