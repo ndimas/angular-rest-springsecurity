@@ -43,13 +43,13 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
-	<bean id="newsEntryDao" class="com.telco.sampleApp.dao.newsentry.JpaNewsEntryDao">
+	<bean id="newsEntryDao" class="com.mtn.proofOfConcept.dao.newsentry.JpaNewsEntryDao">
 	</bean>
 	
-	<bean id="userDao" class="com.telco.sampleApp.dao.user.JpaUserDao">
+	<bean id="userDao" class="com.mtn.proofOfConcept.dao.user.JpaUserDao">
 	</bean>
 	
-	<bean id="dataBaseInitializer" class="com.telco.sampleApp.dao.DataBaseInitializer" init-method="initDataBase">
+	<bean id="dataBaseInitializer" class="com.mtn.proofOfConcept.dao.DataBaseInitializer" init-method="initDataBase">
 		<constructor-arg ref="userDao" />
 		<constructor-arg ref="newsEntryDao" />
 		<constructor-arg ref="passwordEncoder" />
@@ -61,7 +61,7 @@
 		INIT REST COMPONENTS 
 	 -->
 	
-	<context:component-scan base-package="com.telco.sampleApp.rest.resources" />
+	<context:component-scan base-package="com.mtn.proofOfConcept.rest.resources" />
 	
 	<bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	
@@ -94,9 +94,9 @@
 		<security:intercept-url method="DELETE" pattern="/rest/news/**" access="hasRole('admin')" />
 	</security:http>
 
-	<bean id="unauthorizedEntryPoint" class="com.telco.sampleApp.rest.UnauthorizedEntryPoint" />
+	<bean id="unauthorizedEntryPoint" class="com.mtn.proofOfConcept.rest.UnauthorizedEntryPoint" />
 
-	<bean class="com.telco.sampleApp.rest.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
+	<bean class="com.mtn.proofOfConcept.rest.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
 		<constructor-arg ref="userDao" />
 	</bean>
 

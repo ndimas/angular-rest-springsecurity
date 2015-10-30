@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 	<persistence-unit name="examplePU">
-		<class>com.telco.sampleApp.entity.NewsEntry</class>
-		<class>com.telco.sampleApp.entity.User</class>
+		<class>com.mtn.proofOfConcept.entity.NewsEntry</class>
+		<class>com.mtn.proofOfConcept.entity.User</class>
 	</persistence-unit>
 </persistence>
