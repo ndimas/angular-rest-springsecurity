@@ -20,7 +20,6 @@ public class Application extends SpringBootServletInitializer {
 
     protected Log logger;
 
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
@@ -37,7 +36,6 @@ public class Application extends SpringBootServletInitializer {
 
         return registration;
     }
-
 
         @Bean
     public CharacterEncodingFilter characterEncodingFilter() {
