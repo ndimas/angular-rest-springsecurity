@@ -61,7 +61,7 @@
 		INIT REST COMPONENTS 
 	 -->
 	
-	<context:component-scan base-package="net.dontdrinkandroot.example.angularrestspringsecurity.rest.resources" />
+	<context:component-scan base-package="com.telco.sampleApp.rest.resources" />
 	
 	<bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	
