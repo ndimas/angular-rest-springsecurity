@@ -9,7 +9,143 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>pom</packaging>
+
     <artifactId>angular-springboot-client</artifactId>
+    <properties>
+        <jdk.version>1.8</jdk.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <node.version>v0.12.1</node.version>
+        <npm.version>2.7.1</npm.version>
+
+        <phantomjs.maven.plugin.version>0.7</phantomjs.maven.plugin.version>
+        <phantomjs.configuration.version>2.0.0</phantomjs.configuration.version>
+        <jasmine.maven.plugin.version>2.0</jasmine.maven.plugin.version>
+        <frontend.maven.plugin>0.0.26</frontend.maven.plugin>
+        <phantomjs.binary>todo</phantomjs.binary>
+    </properties>
+
+    <build>
+        <finalName>client</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.klieber</groupId>
+                    <artifactId>phantomjs-maven-plugin</artifactId>
+                    <version>${phantomjs.maven.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.searls</groupId>
+                    <artifactId>jasmine-maven-plugin</artifactId>
+                    <version>${jasmine.maven.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${frontend.maven.plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>com.github.klieber</groupId>
+                <artifactId>phantomjs-maven-plugin</artifactId>
+                <version>${phantomjs.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <version>${phantomjs.configuration.version}</version>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
+                    <webDriverCapabilities>
+                        <capability>
+                            <name>phantomjs.binary.path</name>
+                            <value>${phantomjs.binary}</value>
+                        </capability>
+                    </webDriverCapabilities>
+                    <preloadSources>
+                        <!-- third-party -->
+                        <source>${project.basedir}/src/main/webapp/js/jquery/jquery.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/angular/angular.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/angular/angular-route.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/angular/angular-messages.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/angular/angular-aria.js</source>
+                        <!-- required -->
+                        <source>${project.basedir}/src/test/webapp/specs/angular/angular-mocks.js</source>
+                        <source>${project.basedir}/src/test/webapp/specs/angular/angular-jasmine.js</source>
+                        <!-- custom -->
+                        <source>${project.basedir}/src/main/webapp/js/custom/app.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/config.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/listener.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/controller.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/controllers/**/*.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/service.js</source>
+                        <source>${project.basedir}/src/main/webapp/js/custom/services/**/*.js</source>
+                    </preloadSources>
+                    <jsSrcDir>${project.basedir}/src/main/webapp/js</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/webapp/specs</jsTestSrcDir>
+                    <specIncludes>
+                        <include>**/*.spec.js</include>
+                    </specIncludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${frontend.maven.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <nodeVersion>${node.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>gulp default</id>
+                        <goals>
+                            <goal>gulp</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
