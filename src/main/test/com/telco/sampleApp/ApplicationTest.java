@@ -1,4 +1,4 @@
-package java.com.telco.sampleApp;
+package com.telco.sampleApp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,32 +1,34 @@
 package com.telco.sampleApp;
 
+import com.telco.sampleApp.rest.RestServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 @SpringBootApplication
 @Configuration
-@EnableGlobalMethodSecurity
-@ImportResource("classpath:context.xml")
-/*@ComponentScan({"cy.mtn.example.dao",
-                "cy.mtn.example.rest"})*/
+@ImportResource({"classpath:context.xml"})
 public class Application extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        // Customize the application or call application.sources(...) to add sources
-        // Since our example is itself a @Configuration class we actually don't
-        // need to override this method.
-        application.sources(Application.class);
-
-        return application;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public ServletRegistrationBean foo() {
+        return new ServletRegistrationBean ( new RestServlet() ,"/rest/*");
+    }
+
+    @Bean
+    public CharacterEncodingFilter characterEncodingFilter() {
+        final CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return characterEncodingFilter;
     }
 }
