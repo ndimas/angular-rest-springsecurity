@@ -1,22 +1,8 @@
 package com.mtn.proofOfConcept.rest.resources;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-
 import com.mtn.proofOfConcept.JsonViews;
 import com.mtn.proofOfConcept.dao.newsentry.NewsEntryDao;
 import com.mtn.proofOfConcept.entity.NewsEntry;
-
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -29,6 +15,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.util.List;
 
 
 @Component

@@ -1,20 +1,8 @@
 package com.mtn.proofOfConcept.rest.resources;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-
 import com.mtn.proofOfConcept.rest.TokenUtils;
 import com.mtn.proofOfConcept.transfer.TokenTransfer;
 import com.mtn.proofOfConcept.transfer.UserTransfer;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,6 +13,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Component

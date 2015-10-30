@@ -1,19 +1,17 @@
 package com.mtn.proofOfConcept.dao.user;
 
-import java.util.List;
+import com.mtn.proofOfConcept.dao.JpaDao;
+import com.mtn.proofOfConcept.entity.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
-
-import com.mtn.proofOfConcept.dao.JpaDao;
-import com.mtn.proofOfConcept.entity.User;
-
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 
 public class JpaUserDao extends JpaDao<User, Long> implements UserDao

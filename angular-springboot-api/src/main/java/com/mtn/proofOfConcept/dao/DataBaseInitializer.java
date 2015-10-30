@@ -1,13 +1,12 @@
 package com.mtn.proofOfConcept.dao;
 
-import java.util.Date;
-
 import com.mtn.proofOfConcept.dao.newsentry.NewsEntryDao;
 import com.mtn.proofOfConcept.dao.user.UserDao;
-import com.mtn.proofOfConcept.entity.User;
 import com.mtn.proofOfConcept.entity.NewsEntry;
-
+import com.mtn.proofOfConcept.entity.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Date;
 
 
 /**

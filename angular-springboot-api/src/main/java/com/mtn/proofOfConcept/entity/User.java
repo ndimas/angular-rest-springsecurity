@@ -1,23 +1,18 @@
 package com.mtn.proofOfConcept.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 
 @javax.persistence.Entity
-public class User implements Entity, UserDetails
+public class User implements com.mtn.proofOfConcept.entity.Entity, UserDetails
 {
 
 	@Id

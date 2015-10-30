@@ -1,16 +1,14 @@
 package com.mtn.proofOfConcept.dao;
 
-import java.util.List;
+import com.mtn.proofOfConcept.entity.Entity;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
-import com.mtn.proofOfConcept.entity.Entity;
-
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 
 public class JpaDao<T extends Entity, I> implements Dao<T, I>

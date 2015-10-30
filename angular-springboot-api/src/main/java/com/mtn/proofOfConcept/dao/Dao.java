@@ -1,8 +1,8 @@
 package com.mtn.proofOfConcept.dao;
 
-import java.util.List;
-
 import com.mtn.proofOfConcept.entity.Entity;
+
+import java.util.List;
 
 
 public interface Dao<T extends Entity, I>

@@ -1,10 +1,10 @@
 package com.mtn.proofOfConcept.rest;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.codec.Hex;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 public class TokenUtils

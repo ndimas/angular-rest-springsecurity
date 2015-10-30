@@ -1,7 +1,7 @@
 package com.mtn.proofOfConcept.dao.newsentry;
 
-import com.mtn.proofOfConcept.entity.NewsEntry;
 import com.mtn.proofOfConcept.dao.Dao;
+import com.mtn.proofOfConcept.entity.NewsEntry;
 
 
 /**

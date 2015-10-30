@@ -1,14 +1,12 @@
 package com.mtn.proofOfConcept.entity;
 
-import java.util.Date;
+import com.mtn.proofOfConcept.JsonViews;
+import org.codehaus.jackson.map.annotate.JsonView;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import com.mtn.proofOfConcept.JsonViews;
-
-import org.codehaus.jackson.map.annotate.JsonView;
+import java.util.Date;
 
 
 /**

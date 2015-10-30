@@ -1,7 +1,7 @@
 package com.mtn.proofOfConcept.config;
 
-import com.mtn.proofOfConcept.rest.resources.UserResource;
 import com.mtn.proofOfConcept.rest.resources.NewsEntryResource;
+import com.mtn.proofOfConcept.rest.resources.UserResource;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.ApplicationPath;
